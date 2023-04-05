@@ -1,0 +1,26 @@
+# TOML config for fuzz awk
+
+[info]
+
+project = "awk"
+homepage = "https://github.com/onetrueawk/awk"
+langage = "C"
+
+[fuzzing]
+
+fuzzer = "aflplusplus"
+sanitizers = ["address", "ASAN"]
+fuzz_command = [
+    "command1", 
+    "command2",
+    "command3",
+]
+
+[config]
+
+harness = 16
+
+[report]
+
+report_doc = "LINK TO GOOGLE DOC"
+report_platform = "Huntr.dev"

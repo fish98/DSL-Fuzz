@@ -1,0 +1,9 @@
+[submodule "sources/vim"]
+	path = sources/vim
+	url = git@github.com:vim/vim.git
+[submodule "sources/awk"]
+	path = sources/awk
+	url = git@github.com:onetrueawk/awk.git
+[submodule "sources/gawk"]
+	path = sources/gawk
+	url = https://git.savannah.gnu.org/git/gawk.git
