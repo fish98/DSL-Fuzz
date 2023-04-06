@@ -9,7 +9,7 @@ langage = "C"
 [fuzzing]
 
 fuzzer = "aflplusplus"
-sanitizers = ["address", "ASAN"]
+sanitizers = ["ASAN"]
 fuzz_command = [
     "command1", 
     "command2",

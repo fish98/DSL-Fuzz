@@ -6,6 +6,10 @@
 
 ## Targets
 
+```bash
+git submodule update --init --recursive
+```
+
 1. [AWK](https://github.com/onetrueawk/awk)
 
 2. [GAWK](https://savannah.gnu.org/projects/gawk)
@@ -19,6 +23,11 @@
 ## Reproduce and Triage
 
 1. [CrashWalk](https://github.com/bnagy/crashwalk)
+
+```bash
+cwtriage --root crashes_collect_dir/ -afl > triage.log
+```
+
 2. GDB
 
 ## Records and Progress

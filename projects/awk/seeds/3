@@ -1,0 +1,1 @@
+{printf "username: %s, UID:%d\n", $1, $2}
