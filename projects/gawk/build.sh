@@ -2,6 +2,8 @@
 # Fuzzer build config for GAWK
 ################################################################################
 
+git clone https://git.savannah.gnu.org/git/gawk.git
+
 # Modify Makefile
 # Find gcc and then change to afl-clang-fast
 

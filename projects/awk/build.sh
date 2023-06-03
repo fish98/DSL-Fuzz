@@ -2,6 +2,8 @@
 # Fuzzer build config for AWK
 ################################################################################
 
+git clone https://github.com/onetrueawk/awk.git
+
 ### PREQUISITE ### 
 ls -la > list.log
 # Modify Makefile
