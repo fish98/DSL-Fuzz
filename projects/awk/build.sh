@@ -1,11 +1,21 @@
 #!/bin/bash
 # Fuzzer build config for AWK
 ################################################################################
+SRC=/src
 
-git clone https://github.com/onetrueawk/awk.git
+# System requirement
+echo core >/proc/sys/kernel/core_pattern
+
+cd /sys/devices/system/cpu
+echo performance | tee cpu*/cpufreq/scaling_governor
+
+cd $SRC/awk/
+
+# Clone repo
+git clone https://github.com/onetrueawk/awk.git && cd awk
 
 ### PREQUISITE ### 
-ls -la > list.log
+
 # Modify Makefile
 # Find gcc and then change to afl-clang-fast
 
@@ -30,7 +40,8 @@ FUZZDATE=$(date +"%m-%d")
 mkdir fuzz_corpus && mkdir fuzz_"${FUZZDATE}"_output
 
 # TODO: modify the relative path 
-# cp -r seeds/* fuzz_corpus/*
+cp -r $SRC/dslfuzz/projects/awk/seeds/* fuzz_corpus/
+ls -la > list.log
 
 # TMUX
 afl-fuzz -m none -i fuzz_corpus -o fuzz_0407_output -M Master -- ./awk -f @@

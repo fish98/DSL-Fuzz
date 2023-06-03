@@ -24,4 +24,10 @@ RUN git clone https://github.com/AFLplusplus/AFLplusplus $SRC/AFlplusplus && cd 
 
 # # System Config
 RUN sysctl -w kernel.core_pattern="core-%e"
+
+# Must start image with privileged parameter!!
 # RUN echo core >/proc/sys/kernel/core_pattern
+
+# 
+
+RUN git clone https://github.com/fish98/DSL-Fuzz.git $SRC/dslfuzz
