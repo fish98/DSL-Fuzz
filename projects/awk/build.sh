@@ -3,7 +3,7 @@
 # docker run -i -t --privileged --net=host --name dsl-fuzz dsl:0.1 /bin/bash
 ################################################################################
 SRC=/src
-CC=afl-gcc-fast
+CC=afl-clang-fast
 
 # TODO: fix afl-clang-fast build error
 
