@@ -1,10 +1,17 @@
 # Fuzzing DSL Projects for Fun and Bugs
 
-## Prerequisites
+## Run in docker
+
+1. Build the Dockerfile
+2. Enter each project and run `build.sh` and `fuzz.sh`, respectively
+
+## Local deployment
+
+### Prerequisites
 
 1. [AFLplusplus](https://github.com/AFLplusplus/AFLplusplus)
 
-## Targets
+### Targets
 
 ```bash
 git submodule update --init --recursive

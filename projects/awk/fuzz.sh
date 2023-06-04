@@ -6,12 +6,10 @@ CC=afl-gcc-fast
 FUZZDATE=$(date +"%m-%d")
 PARALLEL=3
 
-
 cd $SRC/awk
 mkdir fuzz_"${FUZZDATE}"_output
 
-# TMUX?
-
+# Parallel 
 if [ $PARALLEL -gt 1 ];
 then
     tmux new -s awkmaster -d
