@@ -50,4 +50,4 @@ cp -r $SRC/dslfuzz/projects/awk/fuzz.sh .
 ls -la > list.log
 
 # Fuzz
-bash fuzz.sh
+# bash fuzz.sh
