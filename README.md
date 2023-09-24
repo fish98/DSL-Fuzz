@@ -20,6 +20,21 @@ git submodule update --init --recursive
 
 1. TOML
 
+## Data Processing
+
+1. Collect all the distributed results
+
+ensure dir `hang_collect_{package_name}`, `queue_collect_{package_name}` and dir `crashes_collect_{package_name}` has collected all the related data.
+
+Move all the related subdirs into the corresponding result dir (e.g., {package_name}-1, {package_name}-2)
+
+2. Gather
+
+```bash
+python collect_result.py
+bash gather_result.sh
+```
+
 ## Reproduce and Triage
 
 1. [CrashWalk](https://github.com/bnagy/crashwalk)
