@@ -28,7 +28,7 @@ ensure dir `hang_collect_{package_name}`, `queue_collect_{package_name}` and dir
 
 Move all the related subdirs into the corresponding result dir (e.g., {package_name}-1, {package_name}-2)
 
-2. Gather
+2. Gather Data
 
 ```bash
 python collect_result.py
