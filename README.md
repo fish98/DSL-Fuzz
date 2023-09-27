@@ -44,6 +44,14 @@ bash gather_result.sh
 
 ## Reproduce and Triage
 
+0. AFLPlusplus
+
+```bash
+docker run -ti --privileged --net=host -v ${SOURCE}:/src aflplusplus/aflplusplus
+export CC=afl-clang-fast
+sed -i "s/gcc/${CC}/g" makefile
+```
+
 1. [CrashWalk](https://github.com/bnagy/crashwalk)
 
 ```bash
@@ -51,6 +59,8 @@ cwtriage --root crashes_collect_dir/ -afl > triage.log
 ```
 
 2. GDB
+
+Ensure the source code is compiled properly.
 
 ## Records and Progress
 
