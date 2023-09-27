@@ -56,6 +56,9 @@ sed -i "s/gcc/${CC}/g" makefile
 1. [CrashWalk](https://github.com/bnagy/crashwalk)
 
 ```bash
+apt update
+apt install golang # important !!
+
 wget https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz
 tar -xzf go1.12.1.linux-amd64.tar.gz -C /usr/local
 
