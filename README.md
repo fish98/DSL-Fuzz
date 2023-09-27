@@ -48,6 +48,7 @@ bash gather_result.sh
 
 ```bash
 docker run -ti --privileged --net=host -v ${SOURCE}:/src aflplusplus/aflplusplus
+
 export CC=afl-clang-fast
 sed -i "s/gcc/${CC}/g" makefile
 ```
@@ -55,6 +56,20 @@ sed -i "s/gcc/${CC}/g" makefile
 1. [CrashWalk](https://github.com/bnagy/crashwalk)
 
 ```bash
+wget https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz
+tar -xzf go1.12.1.linux-amd64.tar.gz -C /usr/local
+
+mkdir /go
+export GOPATH=/go
+export GOROOT=/usr/local/go
+export PATH=$GOROOT/bin:$PATH
+# :/go/bin
+
+go get -u github.com/bnagy/crashwalk/cmd/...
+
+mkdir ~/src
+git clone https://github.com/jfoote/exploitable.git ~/src/exploitable
+
 cwtriage --root crashes_collect_dir/ -afl > triage.log
 ```
 
