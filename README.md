@@ -65,8 +65,7 @@ tar -xzf go1.12.1.linux-amd64.tar.gz -C /usr/local
 mkdir /go
 export GOPATH=/go
 export GOROOT=/usr/local/go
-export PATH=$GOROOT/bin:$PATH
-# :/go/bin
+export PATH=$GOROOT/bin:$PATH:/go/bin
 
 go get -u github.com/bnagy/crashwalk/cmd/...
 
