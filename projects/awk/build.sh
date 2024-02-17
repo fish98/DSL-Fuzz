@@ -2,8 +2,8 @@
 # Fuzzer build config for AWK
 # docker run -i -t --privileged --net=host --name dsl-fuzz dsl:0.1 /bin/bash
 ################################################################################
-SRC=/src
-CC=afl-clang-fast
+export SRC=/src
+export CC=afl-clang-fast
 
 # TODO: fix afl-clang-fast build error
 
@@ -14,13 +14,14 @@ cd /sys/devices/system/cpu
 echo performance | tee cpu*/cpufreq/scaling_governor
 
 # Clone repo
+cd $SRC
 git clone https://github.com/onetrueawk/awk.git $SRC/awk && cd $SRC/awk
 
 ### PREQUISITE ### 
 
 # Modify Makefile
 # Find gcc and then change to afl-clang-fast
-sed -i "s/gcc/${CC}/g" makefile
+sed -i "s/cc/${CC}/g" makefile
 
 ### SANITIZER ###
 
