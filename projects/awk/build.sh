@@ -44,11 +44,14 @@ mv a.out awk
 mkdir fuzz_corpus
 
 # TODO: modify the relative path 
-cp -r $SRC/dslfuzz/projects/awk/seeds/* fuzz_corpus/
-cp -r $SRC/dslfuzz/projects/awk/fuzz.sh .
+cp -r $SRC/DSLFuzz/projects/awk/seeds/* fuzz_corpus/
+cp -r $SRC/DSLFuzz/projects/awk/fuzz.sh .
 
 # Prepare object file
 ls -la > list.log
 
 # Fuzz
 # bash fuzz.sh
+
+## If without tmux
+apt update && apt install -y tmux

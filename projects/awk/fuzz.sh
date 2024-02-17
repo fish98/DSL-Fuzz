@@ -4,7 +4,7 @@
 SRC=/src
 CC=afl-gcc-fast
 FUZZDATE=$(date +"%m-%d")
-PARALLEL=3
+PARALLEL=2
 
 cd $SRC/awk
 mkdir fuzz_"${FUZZDATE}"_output
