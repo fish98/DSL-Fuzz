@@ -1,5 +1,5 @@
 #!/bin/bash
-# Fuzzer build config for AWK
+# fuzzer execution for awk
 ################################################################################
 SRC=/src
 FUZZDATE=$(date +"%m-%d")

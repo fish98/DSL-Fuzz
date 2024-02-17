@@ -52,6 +52,3 @@ ls -la > list.log
 
 # Fuzz
 # bash fuzz.sh
-
-## If without tmux
-apt update && apt install -y tmux
