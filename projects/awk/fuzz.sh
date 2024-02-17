@@ -2,9 +2,8 @@
 # Fuzzer build config for AWK
 ################################################################################
 SRC=/src
-CC=afl-gcc-fast
 FUZZDATE=$(date +"%m-%d")
-PARALLEL=2
+PARALLEL=3
 
 cd $SRC/awk
 mkdir fuzz_"${FUZZDATE}"_output
