@@ -21,6 +21,7 @@ git clone https://github.com/onetrueawk/awk.git $SRC/awk && cd $SRC/awk
 
 # Modify Makefile
 # Find gcc and then change to afl-clang-fast
+cd $SRC/awk
 sed -i "s/cc/${CC}/g" makefile
 
 ### SANITIZER ###

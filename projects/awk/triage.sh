@@ -32,3 +32,9 @@ go get -u github.com/bnagy/crashwalk/cmd/...
 mkdir "${PROJECT}"_"${FUZZDATE}"_output
 
 docker run -i -t --privileged --net=host -v "$(pwd)"/fuzz_"${FUZZDATE}"_output:/out --name dslfuzz dsltest:1.0 /bin/bash
+
+
+# For single input with GDB
+### Build with -g and -O0
+
+set args -f testcases/testcase1
