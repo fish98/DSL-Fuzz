@@ -8,33 +8,31 @@ SRC=/src
 WORK=$(pwd)
 PROJECT=awk
 
-FUZZDATE=$(date +"%m-%d")
-FUZZRESDIR="fuzz_${FUZZDATE}_output"
+# FUZZDATE=$(date +"%m-%d")
+# FUZZRESDIR="fuzz_${FUZZDATE}_output"
 
 # git clone git@github.com:bnagy/crashwalk.git $WORK/$FUZZRESDIR
 
-git clone git@github.com:jfoote/exploitable.git $SRC/exploitable && cd $SRC/exploitable
+git clone https://github.com/jfoote/exploitable.git $SRC/exploitable && cd $SRC/exploitable
 python setup.py install
 
 export CW_EXPLOITABLE=$SRC/exploitable/exploitable
 
-# git clone git@github.com:bnagy/crashwalk.git $SRC/crashwalk && cd $SRC/crashwalk
+# Install go 1.16
+cd $SRC
+mkdir gopath
+wget https://go.dev/dl/go1.16.1.linux-amd64.tar.gz
+tar -xzf go1.16.1.linux-amd64.tar.gz
+export GOROOT="/src/go"
+export GOPATH="/src/gopath"
+export GOBIN=$GOROOT/bin
+export PATH=$PATH:$GOBIN
+
+# Install CrashWalk 
+export CGO_ENABLED=0 # Avoid CGO Error
 go get -u github.com/bnagy/crashwalk/cmd/...
 
-# 1. Unpack the result
+# 
+cwtriage -root . -afl | tee crash-$PROJECT.log
 
-# 2. crashwalk
-
-# 3. Analyze the hang result
-
-# 4. 
-
-mkdir "${PROJECT}"_"${FUZZDATE}"_output
-
-docker run -i -t --privileged --net=host -v "$(pwd)"/fuzz_"${FUZZDATE}"_output:/out --name dslfuzz dsltest:1.0 /bin/bash
-
-
-# For single input with GDB
-### Build with -g and -O0
-
-set args -f testcases/testcase1
+# 2. Analyze the hang result
