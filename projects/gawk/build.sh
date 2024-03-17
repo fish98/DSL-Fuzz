@@ -24,22 +24,15 @@ git clone https://git.savannah.gnu.org/git/gawk.git $SRC/gawk && cd $SRC/gawk
 export AFL_HARDEN=1
 export AFL_USE_ASAN=1
 
-./configure CC=${CC} CXX=${CXX} CFLAGS="-g -fsanitize=address"
+./configure CC=${CC} CXX=${CXX} CFLAGS="-g -O0 -fsanitize=address"
 
 make
 
 mkdir fuzz_corpus
 
 # TODO: modify the relative path 
-cp -r $SRC/DSLFuzz/projects/gawk/seeds/* fuzz_corpus/
-cp -r $SRC/DSLFuzz/projects/gawk/fuzz.sh .
+cp -r $SRC/projects/gawk/seeds/* fuzz_corpus/
+cp -r $SRC/projects/gawk/fuzz.sh .
 
 # Prepare object file
 ls -la > list.log
-
-# DIRECTORY
-
-# FUZZ
-	
-# ./afl-fuzz -i afl_in -o afl_out -M Master -- ./program @@
-# ./afl-fuzz -i afl_in -o afl_out -S Slave1 -- ./program @@

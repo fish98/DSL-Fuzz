@@ -23,14 +23,11 @@ git clone https://github.com/onetrueawk/awk.git $SRC/awk && cd $SRC/awk
 # Find gcc and then change to afl-clang-fast
 cd $SRC/awk
 sed -i "s/cc/${CC}/g" makefile
+# Check whether -O has been configured
 
 ### SANITIZER ###
 
-# AFL_HARDEN=1 
-
 AFL_USE_ASAN=1 make
-
-# ./configure CC=gcc CXX=g++ CFLAGS="-g -fsanitize=address"
 
 mv a.out awk
 
@@ -45,11 +42,8 @@ mv a.out awk
 mkdir fuzz_corpus
 
 # TODO: modify the relative path 
-cp -r $SRC/DSLFuzz/projects/awk/seeds/* fuzz_corpus/
-cp -r $SRC/DSLFuzz/projects/awk/fuzz.sh .
+cp -r $SRC/projects/awk/seeds/* fuzz_corpus/
+cp -r $SRC/projects/awk/fuzz.sh .
 
 # Prepare object file
 ls -la > list.log
-
-# Fuzz
-# bash fuzz.sh
