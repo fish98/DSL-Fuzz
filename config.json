@@ -1,7 +1,7 @@
 {
-    "root_path": "/location/to/gawk",
+    "root_path": "/src/gawk",
     "analysis_type": "hangs",
-    "afl_output_dir": "output-0318",
+    "afl_output_dir": "fuzz_03-18_output",
     "project_name": "gawk",
     "timeout": 10
 }
