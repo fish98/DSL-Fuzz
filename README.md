@@ -1,17 +1,10 @@
 # Fuzzing DSL Projects for Fun and Bugs
 
-## Run in docker
-
-1. Build the Dockerfile
-2. Enter each project and run `build.sh` and `fuzz.sh`, respectively
-
-## Local deployment
-
-### Prerequisites
+## Prerequisites
 
 1. [AFLplusplus](https://github.com/AFLplusplus/AFLplusplus)
 
-### Targets
+## Targets
 
 ```bash
 git submodule update --init --recursive
@@ -23,9 +16,20 @@ git submodule update --init --recursive
 
 3. [VIM](https://github.com/vim/vim)
 
-**TODO**
+##  Experiment Workflow (TODO)
 
-1. TOML
+1. Clone the project
+2. Run cluster fuzzer
+3. Collect result
++ run crashwalker
++ python utils/collect_result
++ python utils/analyze_hang
+4. Manual Analysis
+
+## Run in docker
+
+1. Build the Dockerfile
+2. Enter each project and run `build.sh` and `fuzz.sh`, respectively
 
 ## Data Processing
 

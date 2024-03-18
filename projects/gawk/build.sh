@@ -26,7 +26,7 @@ export AFL_USE_ASAN=1
 
 ./configure CC=${CC} CXX=${CXX} CFLAGS="-g -O0 -fsanitize=address"
 
-make
+make -j
 
 mkdir fuzz_corpus
 
