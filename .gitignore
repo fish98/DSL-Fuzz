@@ -3,3 +3,5 @@ triage/
 awk/
 gawk/
 test/
+report/
+bt_result
